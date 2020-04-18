@@ -2,6 +2,11 @@
 console.log("this is loaded");
 
 exports.spotify = {
-    id: Process.env.SPOTIFY_ID,
-    secret:Process.env.Spotify_SECRET
+    id: process.env.SPOTIFY_ID,
+    secret:process.env.SPOTIFY_SECRET,
+    
+};
+
+exports.bands = {
+    API: process.env.Bands_IN_Town
 };
