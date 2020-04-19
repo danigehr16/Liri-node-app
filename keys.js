@@ -1,5 +1,4 @@
  
-console.log("this is loaded");
 
 exports.spotify = {
     id: process.env.SPOTIFY_ID,
@@ -9,4 +8,8 @@ exports.spotify = {
 
 exports.bands = {
     API: process.env.Bands_IN_Town
+};
+
+exports.movie = {
+    API: process.env.OMDBAPI
 };
