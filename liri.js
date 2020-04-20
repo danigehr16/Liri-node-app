@@ -41,23 +41,30 @@ function concertThis(artist) {
         console.log("You need to pick an artist/band to do a search...");
         return;
     }
+    // console.log(keys.bands.API);
     axios.get("https://rest.bandsintown.com/artists/" + artist + "/events?app_id=" + keys.bands.API)
+    
+    
         .then(function (response) {
 
-            for (var i = 0; i < response.data.length; i++) {
+            for (var i = 0; i < 1; i++) {
                 var datetime = response.data[i].datetime;
                 var dataArr = datetime.split("T");
-                var concertResults = "\nVenue Name: " + response.data[i].venue.name +
-                    "\nVenue Location: " + response.data[i].location.city +
-                    "\nDate of the Event: " + moment(dataArr[0], "MM-DD-YYYY");
+                var concertResults = "\nVenue Name: " + response.data[i].venue.name + 
+                    "\nVenue Location: " + response.data[i].venue.location +
+                    "\nDate of the Event: " + (dataArr[0]);
+                    console.log(dataArr[0]);
 
                 console.log(concertResults);
+                
             }
         })
 
         .catch(function (error) {
             if (error.response) {
-            }
+            
+            console.log(error);
+        }
         });
 };
 
@@ -68,7 +75,7 @@ function spotifySong(value) {
         console.log(value);
     }
     spotify.search({type: 'track' , query: value}).then(function(response){
-        for (var i = 0; i < 5; i++) {
+        for (var i = 0; i < 3; i++) {
             console.log("--------------------");
             var spotifyResults = "Artist(s): " + response.tracks.items[i].artists[0].name + "\nSong Title: " + response.tracks.items[i].name +
             "\nAlbum Name: " + response.tracks.items[i].album.name + "\nPreview link: " + response.tracks.items[i].preview_url;
@@ -104,69 +111,12 @@ function movieThis(value) {
         });
 }
 
-
-
-
-
-
-
-
-
-
-
-
-// function for movies
-// function movieThis(movie) {
-//     if (movie === undefined) {
-//         movie = 'Mr. Nobody'
-//         console.log("---------------");
-//         console.log("If you haven't watched Mr. Nobody, then you should: <http://www.imdb.com/title/tt0485947/>");
-//         console.log("It's on Netflix");
-//     }
-//     var queryURL = "http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&" + keys.movie.API;
-//     console.log(queryURL);
-
-//     for(var i = 2; i < value.length; i++){
-//         if (i > 2 && i < value.length) {
-//             movie = movie + "+" + value[i];
-//         }else {
-//             movie += value[i];
-//         }
-//     }
-
-//     axios.get(queryURL).then(
-//         function (response) {
-//             console.log("Movie Title: " + response.data.title);
-//             console.log("Release Year: " + response.data.year);
-//             console.log("IMDB Rating: " + response.data.IMDB.rating);
-//             console.log("Rotten Tomatoes Rating: " + response.data.RottenTomatoes.rating);
-//             console.log("Country: " + response.data.movie.country);
-//             console.log("Language: " + response.data.movie.language);
-//             console.log("Plot: " + response.data.movie.plot);
-//             console.log("Cast: " + response.data.movie.actors);
-//         })
-//         .catch(function (error) {
-//             if (error.response) {
-//                 console.log(error.response.data);
-//                 console.log(error.response.status);
-//                 console.log(error.response.headers);
-//             } else if (error.request) {
-//                 console.log(error.request)
-//             } else {
-//                 console.log("Error", error.message);
-//             }
-//             console.log(error.config);
-//         });
-// }
-
-
-
-
-
-
-
-
-
-
-
-
+function doThis(value) {
+    fs.readFile("random.txt", "utf8", function(error, data) {
+        if(error) {
+            return console.log(error);
+        }
+        var dataArr = data.split(" ");
+        spotifySong(dataArr[1]);
+    })
+}
