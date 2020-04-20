@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Liri Bot</title>
+</head>
+
+<body>
+    <style>
+        .pics {
+            width: 300px;
+            height: 300px;
+            padding: 10px;
+            margin: 5px;
+            background-color: black;
+            
+        }
+        @media screen and (min-width: 1000px) {
+            .pics{
+                width: 700px;
+                height: 500px;
+            }
+        }
+        
+
+        .header {
+            text-align: center;
+            background-color: beige;
+            font-family: fantasy;
+            font-size: 30px;
+            padding: 10px;
+            margin: 5px;
+
+        }
+
+        .display-4 {
+            text-align: center;
+            font-family: fantasy;
+
+        }
+
+        .jumbotron {
+            background-color: beige;
+            margin: 20px;
+            padding: 10px;
+
+        }
+
+        .lead {
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .button {
+            font-family: 'Times New Roman', Times, serif;
+            float: left;
+            background-color:blue;
+            padding: 4px;
+            border-radius: 8px;
+            border: blue solid;
+            color: white;
+        }
+
+        .buttContainer {
+            padding-left: 70px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        @media screen and (min-width: 1000px) {
+            .video{
+                height: 500px;
+                width: 800px;
+            }
+        }
+        #textColor{
+            color: white;
+            padding: 2px;
+        }
+    </style>
+
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Liri Bot</h1>
+            <p class="lead">Here are the screen shots for my Node Liri Bot. Also included is a screen video of the Liri
+                Bot working in the terminal.</p>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <p class="header">Concert This</p>
+                <img class="pics" src="screenshots/concert.png">
+            </div>
+            <div class="col">
+                <p class="header">Spotify This Song</p>
+                <img class="pics" src="screenshots/spotify.png">
+            </div>
+            <div class="w-100"></div>
+            <div class="col">
+                <p class="header">Movie This</p>
+                <img class="pics" src="screenshots/movie.png">
+            </div>
+            <div class="col">
+                <p class="header">Do What It Says</p>
+                <img class="pics" src="screenshots/do what it says.png">
+            </div>
+
+            <div class="col">
+                <p class="header">Video</p>
+                <video class="video" width="450px" height="500px" controls>
+                    <source src="screenshots/recording.mov" type="video/mp4">
+                </video>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="buttContainer">
+        <button class="button">
+            <a id="textColor" href="https://danigehr16.github.io/Danielle-Gehr-Portfolio-/"> Click Here to Go Back</a>
+        </button>
+    </div>
+
+    <br>
+    <br>
+
+
+
+</body>
+
+</html>
