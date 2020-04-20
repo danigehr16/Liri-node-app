@@ -37,8 +37,10 @@ switch (command) {
 
 // function for bands to show concert information
 function concertThis(artist) {
-    if (value === "undefined") {
-        console.log("You need to pick an artist/band to do a search...");
+    if (!value) {
+        console.log("---------------------------");
+        console.log("\nYou need to pick an artist/band to do a search...\n");
+        console.log("-------------------------");
         return;
     }
     // console.log(keys.bands.API);
@@ -47,7 +49,7 @@ function concertThis(artist) {
     
         .then(function (response) {
 
-            for (var i = 0; i < 1; i++) {
+            for (var i = 0; i < 3; i++) {
                 var datetime = response.data[i].datetime;
                 var dataArr = datetime.split("T");
                 var concertResults = "\nVenue Name: " + response.data[i].venue.name + 
@@ -71,12 +73,13 @@ function concertThis(artist) {
 // function for spotify
 function spotifySong(value) {
     if (!value) {
-        value = "The Sign";
-        console.log(value);
+        value = "The Sign"
+        
+        console.log("------------------------");
+        console.log("\nSorry there was an error, but here try this song!\n"); 
     }
     spotify.search({type: 'track' , query: value}).then(function(response){
         for (var i = 0; i < 3; i++) {
-            console.log("--------------------");
             var spotifyResults = "Artist(s): " + response.tracks.items[i].artists[0].name + "\nSong Title: " + response.tracks.items[i].name +
             "\nAlbum Name: " + response.tracks.items[i].album.name + "\nPreview link: " + response.tracks.items[i].preview_url;
             console.log("---------------------------");
@@ -91,9 +94,11 @@ function spotifySong(value) {
 
 
 function movieThis(value) {
-    if (value === undefined) {
+    if (!value) {
         value = "Mr. Nobody";
+        console.log("-------------------------");
         console.log("\nMr. Nobody\n" + " \nIf you haven't watch Mr. Nobody, then you should: <http://www.imdb.com/title/tt0485947/>\n" + "\nThe movie is also on Netflix!\n");
+        console.log("-------------------------");
         return;
     }
     axios.get("http://www.omdbapi.com/?t=" + value + "&y=&plot=short&apikey=trilogy")
@@ -116,7 +121,7 @@ function doThis(value) {
         if(error) {
             return console.log(error);
         }
-        var dataArr = data.split(" ");
+        var dataArr = data.split(",");
         spotifySong(dataArr[1]);
     })
 }
